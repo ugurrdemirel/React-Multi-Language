@@ -33,7 +33,7 @@ function RoutesByLanguage(){
         return Object.keys(translations).map((lang_code: string, id) => {
             return (
                 <>
-                    {/* Dile göre url oluştur. Örn: test.com/tr, test.com/en */}
+                    {/* Generate url by language. Ex: test.com/en, test.com/en */}
                     <Route key={id} path={lang_code}>
                         {routes()}
                     </Route>
@@ -43,7 +43,7 @@ function RoutesByLanguage(){
     }
     return (
         <Routes>
-            {/* Kullanıcı test.com'u ziyaret ederse diline uygun olan sayfaya yölendir. Örn test.com -> test.com/tr */}
+            {/* If the user visits test.com, redirect them to the appropriate page for their language. For example test.com -> test.com/en */}
             <Route path={"/"} element={<Navigate to={`${i18n.language}`} replace />} />
             {renderRoutes()}
         </Routes>
