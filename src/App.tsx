@@ -7,7 +7,7 @@ import {Helmet} from 'react-helmet';
 import {useNavigate} from "react-router-dom";
 function App() {
 
-  // useTranslation hook'u kullan
+  // use useTranslation hook
   const { t, i18n } = useTranslation()
     const navigation = useNavigate()
 
@@ -37,7 +37,7 @@ function App() {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
                 <p>
-                    {/* çeviriler içindeki hello key'i ekrana yazdır */}
+                    {/* print hello key in translations to screen */}
                     {t("hello")}
                 </p>
                 {renderLanguageChangeButtons()}
