@@ -1,10 +1,10 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-// src/Translations/index.ts dosyasını import edelim.
+// import src/Translations/index.ts
 import languages from "../Translations";
 
-// Uygulamızda yer alacak dilleri ekleyelim ve çevirilerini languages değişkeninden alalım.
+// Let's add the languages that will be included in our application and get their translations from the languages variable.
 const resources = {
     en: {
         translation: languages.en
@@ -14,25 +14,25 @@ const resources = {
     }
 };
 
-// Kullanıcının dilini alalım
+// Let's get the user's language
 const getLanguage = () => {
     const ls = localStorage.getItem("language")
-    // LocalStorage içerisinde language key'i içeren bir değer var mı kontrol edelim.
+    // Let's check if there is a value containing the language key in localStorage.
     if (ls !== null) {
-        // Eğer localstorage içinde language key'i içeren bir değer varsa
+        // If there is a value containing language key in localstorage
 
-        // language değeri uygulamamızda yer alacak dillerden biri mi ?
+        // Is the language value one of the languages that will be included in our application?
         if (Object.keys(resources).find(f => f === ls) !== undefined) {
-            // uygulamada yer alan dillerden biri ise bunu return et
+            // return this if it is one of the languages included in the application
             return ls
         } else {
-            // uygulamada yer almayan bir dil ise default olarak ingilizce dilini kullan
+            // If it is a language that is not included in the application, use the English language by default
             localStorage.setItem("language", "en")
             return "en"
         }
     } else {
-        // Kullanıcının dili localstorage içine kaydedilmemiş ise
-        // Browser dilini al
+        // If the user's language is not saved in localstorage
+        // Get browser language
         let parsed = navigator.language
         if (parsed.includes("-")) {
             parsed = parsed.split("-")[0]
